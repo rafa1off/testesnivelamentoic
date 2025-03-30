@@ -1,16 +1,17 @@
-from bs4 import BeautifulSoup
+import urllib.request as urllib
 from pathlib import Path
 from zipfile import ZipFile
+
 import requests
-import urllib.request as urllib
+from bs4 import BeautifulSoup
 
 
 def teste():
     # preparar diretórios
     data_dir = Path("data/")
-    pdf_dir = Path("data/pdf/")
-    xlsx_dir = Path("data/xlsx/")
-    zip_dir = Path("data/zip")
+    pdf_dir = Path(f"{data_dir}/pdf/")
+    xlsx_dir = Path(f"{data_dir}/xlsx/")
+    zip_dir = Path(f"{data_dir}/zip")
 
     if not data_dir.exists():
         data_dir.mkdir()

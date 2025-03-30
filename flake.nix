@@ -31,9 +31,10 @@
               zipfile2
               requests
               urllib3
+              jedi-language-server
+              openpyxl
             ]
           ))
-          pyright
         ];
       in
       {
