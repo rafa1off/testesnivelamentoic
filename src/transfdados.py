@@ -3,25 +3,7 @@ from pathlib import Path
 from zipfile import ZipFile
 
 
-def teste():
-    # prepara diretórios
-    data_dir = Path("data/")
-    xlsx_dir = Path(f"{data_dir}/xlsx/")
-    csv_dir = Path(f"{data_dir}/csv/")
-    zip_dir = Path(f"{data_dir}/zip")
-
-    if not data_dir.exists():
-        data_dir.mkdir()
-
-    if not xlsx_dir.exists():
-        xlsx_dir.mkdir()
-
-    if not csv_dir.exists():
-        csv_dir.mkdir()
-
-    if not zip_dir.exists():
-        zip_dir.mkdir()
-
+def teste(xlsx_dir: Path, csv_dir: Path, zip_dir: Path):
     # utiliza a biblioteca pandas para retornar
     # um dataframe da planilha do anexo1 salva pelo scraping
     dataframe = pandas.read_excel(

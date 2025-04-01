@@ -1,0 +1,40 @@
+name: "postgres"
+
+services:
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - postgres-bridge
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: user
+    ports:
+      - "8080:80"
+    networks:
+      - postgres-bridge
+    volumes:
+      - ./pgadmin/:/var/lib/pgadmin:U
+
+networks:
+  postgres-bridge:
+    name: testenivelamentic
+    driver: bridge
+
+volumes:
+  postgres-volume:
+    name: testenivelamentic-postgres
+  pgadmin-volume:
+    name: testenivelamentic-pgadmin

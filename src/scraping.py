@@ -6,25 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def teste():
-    # preparar diretórios
-    data_dir = Path("data/")
-    pdf_dir = Path(f"{data_dir}/pdf/")
-    xlsx_dir = Path(f"{data_dir}/xlsx/")
-    zip_dir = Path(f"{data_dir}/zip")
-
-    if not data_dir.exists():
-        data_dir.mkdir()
-
-    if not pdf_dir.exists():
-        pdf_dir.mkdir()
-
-    if not xlsx_dir.exists():
-        xlsx_dir.mkdir()
-
-    if not zip_dir.exists():
-        zip_dir.mkdir()
-
+def teste(pdf_dir: Path, xlsx_dir: Path, zip_dir: Path):
     # enviar uma requisição Get para a url e retornar o conteúdo como texto
     content = requests.get(
         "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos"
