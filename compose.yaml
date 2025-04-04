@@ -28,6 +28,19 @@ services:
     volumes:
       - ./pgadmin/:/var/lib/pgadmin:U
 
+  fastapi:
+    image: fastapi:devel
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+    networks:
+      - postgres-bridge
+
 networks:
   postgres-bridge:
     name: testenivelamentic

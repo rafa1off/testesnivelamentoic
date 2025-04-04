@@ -25,7 +25,7 @@ create table if not exists contas (
     data date,
     registro_ans integer references empresas,
     cd_conta_contabil integer,
-    descricao varchar(255),
+    descricao varchar(1024),
     vl_saldo_inicial money,
     vl_saldo_final money
 );

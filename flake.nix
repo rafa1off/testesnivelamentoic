@@ -27,14 +27,18 @@
           (python.withPackages (
             pypkgs: with pypkgs; [
               beautifulsoup4
-              pandas
-              zipfile2
-              requests
-              urllib3
+              fastapi
               jedi-language-server
               openpyxl
+              pandas
+              requests
+              sqlmodel
+              urllib3
+              zipfile2
             ]
           ))
+          typescript-language-server
+          fastapi-cli
         ];
       in
       {
